@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Kimutai Analytics | Boom & Crash Monitor</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="app-shell">
+		<aside class="sidebar">
+			<div class="brand"><span class="brand-mark">P</span><span>Kimutai Analytics</span></div>
+			<nav class="main-nav" aria-label="Main navigation">
+				<a class="nav-item active" href="#overview"><span class="nav-icon">◈</span> Overview</a>
+				<a class="nav-item" href="#markets"><span class="nav-icon">⌁</span> Markets</a>
+				<a class="nav-item" href="#history"><span class="nav-icon">▤</span> Trade history</a>
+				<a class="nav-item" href="#users" id="usersNav"><span class="nav-icon">◎</span> Users</a>
+				<a class="nav-item" href="#settings"><span class="nav-icon">⚙</span> Settings</a>
+			</nav>
+			<div class="sidebar-bottom">
+				<div class="feed-card">
+					<div class="feed-card-top"><span class="status-dot"></span><span>Deriv feed</span><span class="feed-live">LIVE</span></div>
+					<p>WebSocket connection is ready for tick data.</p>
+					<button class="text-button" id="feedButton">Connect feed <span>→</span></button>
+				</div>
+				<div class="user-row"><div class="avatar">AM</div><div><strong>Allan Kimutai</strong><small>Analyst workspace</small></div><span class="more">•••</span></div>
+			</div>
+		</aside>
+
+		<main class="main-content" id="overview">
+			<header class="topbar">
+				<div><p class="eyebrow">WEDNESDAY, 02 SEP 2026 <span class="live-line"></span> MARKET OPEN</p><h1 id="greetingTitle">Welcome, trader.</h1></div>
+				<div class="top-actions"><button class="icon-button" aria-label="Notifications">♧<span class="notification"></span></button><button class="outline-button" id="loginButton">Log in</button><button class="primary-button signup-button" id="signupButton">Sign up</button></div>
+			</header>
+
+			<section class="overview-grid" aria-label="Market overview">
+				<div class="hero-panel panel">
+					<div class="hero-copy"><div class="section-label"><span class="pulse"></span> DETECTION ENGINE</div><h2>Spot the move<br><em>before it hits.</em></h2><p>EMA alignment and RSI conditions are being monitored across your selected synthetic indices.</p><button class="primary-button" id="scanButton">Run market scan <span>↗</span></button></div>
+				</div>
+				<div class="stat-panel panel"><div class="panel-heading"><span>Signals today</span><span class="trend-up">+18.4%</span></div><div class="stat-number">07</div><div class="mini-bars" aria-label="Signals in the last seven days"><i style="height:35%"></i><i style="height:55%"></i><i style="height:42%"></i><i style="height:70%"></i><i style="height:58%"></i><i style="height:80%"></i><i class="bar-current" style="height:100%"></i></div><div class="chart-labels"><span>27 AUG</span><span>TODAY</span></div></div>
+				<div class="stat-panel panel"><div class="panel-heading"><span>Win rate</span><span class="trend-up">+3.2%</span></div><div class="stat-number">74<span class="unit">%</span></div><div class="progress-ring"><svg viewBox="0 0 100 100"><circle class="ring-track" cx="50" cy="50" r="38"></circle><circle class="ring-value" cx="50" cy="50" r="38"></circle></svg><span>74%</span></div><p class="muted-caption">Based on 19 closed trades</p></div>
+			</section>
+
+			<section class="section-block users-section" id="users" hidden>
+				<div class="section-heading"><div><p class="eyebrow">WORKSPACE ACCESS</p><h2>Users</h2></div><span class="rules-count" id="usersCount">Loading...</span></div>
+				<div class="table-wrap"><table><thead><tr><th>NAME</th><th>USERNAME</th><th>EMAIL</th><th>ROLE</th><th>JOINED</th></tr></thead><tbody id="usersTableBody"></tbody></table></div>
+			</section>
+
+			<section class="section-block" id="markets"><div class="section-heading"><div><p class="eyebrow">LIVE SURVEILLANCE</p><h2>Index watchlist</h2></div><div class="filter-group"><button class="filter active-filter">All indexes</button><button class="filter">Boom</button><button class="filter">Crash</button></div></div>
+				<div class="market-grid">
+					<article class="market-card panel"><div class="market-top"><div><span class="market-type boom">BOOM</span><h3>Boom 500 Index</h3></div><span class="market-arrow">↗</span></div><div class="price-row"><strong>1,284.36</strong><span class="price-up">+0.82%</span></div><div class="sparkline green-spark"><span></span></div><div class="market-meta"><span>EMA <b class="valid">VALID</b></span><span>RSI <b>58.40</b></span><span class="watching"><i></i> Watching</span></div></article>
+					<article class="market-card panel"><div class="market-top"><div><span class="market-type boom">BOOM</span><h3>Boom 300 Index</h3></div><span class="market-arrow">↗</span></div><div class="price-row"><strong>846.12</strong><span class="price-up">+0.41%</span></div><div class="sparkline green-spark second"><span></span></div><div class="market-meta"><span>EMA <b class="valid">VALID</b></span><span>RSI <b>52.17</b></span><span class="watching"><i></i> Watching</span></div></article>
+					<article class="market-card panel"><div class="market-top"><div><span class="market-type crash">CRASH</span><h3>Crash 500 Index</h3></div><span class="market-arrow">↗</span></div><div class="price-row"><strong>672.89</strong><span class="price-down">−0.28%</span></div><div class="sparkline red-spark"><span></span></div><div class="market-meta"><span>EMA <b class="invalid">WAIT</b></span><span>RSI <b>43.82</b></span><span class="watching"><i></i> Watching</span></div></article>
+					<article class="market-card panel"><div class="market-top"><div><span class="market-type crash">CRASH</span><h3>Crash 300 Index</h3></div><span class="market-arrow">↗</span></div><div class="price-row"><strong>1,098.54</strong><span class="price-down">−0.63%</span></div><div class="sparkline red-spark second"><span></span></div><div class="market-meta"><span>EMA <b class="valid">VALID</b></span><span>RSI <b>48.05</b></span><span class="watching"><i></i> Watching</span></div></article>
+				</div>
+			</section>
+
+			<section class="bottom-grid"><div class="section-block recent-block" id="history"><div class="section-heading"><div><p class="eyebrow">EXECUTION LOG</p><h2>Recent signals</h2></div><button class="text-button">View history <span>→</span></button></div><div class="table-wrap"><table><thead><tr><th>INDEX</th><th>TRIGGERED</th><th>SETUP</th><th>STATUS</th></tr></thead><tbody><tr><td><span class="table-dot boom-dot"></span>Boom 500</td><td>09:42:18</td><td><span class="setup-tag">EMA + RSI</span></td><td><span class="status-pill ready">Ready</span></td></tr><tr><td><span class="table-dot boom-dot"></span>Boom 300</td><td>08:17:03</td><td><span class="setup-tag">EMA + RSI</span></td><td><span class="status-pill closed">Closed</span></td></tr><tr><td><span class="table-dot crash-dot"></span>Crash 300</td><td>Yesterday</td><td><span class="setup-tag">RSI reversal</span></td><td><span class="status-pill closed">Closed</span></td></tr></tbody></table></div></div><aside class="alert-panel panel"><div class="section-heading"><div><p class="eyebrow">ALERT CENTER</p><h2>Signal rules</h2></div><span class="rules-count">3 active</span></div><div class="rule"><span class="rule-icon">↗</span><div><strong>Spike detection</strong><small>Waiting for an impulse move</small></div><span class="toggle on"></span></div><div class="rule"><span class="rule-icon">≈</span><div><strong>EMA alignment</strong><small>Fast 9 / Slow 21 crossover</small></div><span class="toggle on"></span></div><div class="rule"><span class="rule-icon">◒</span><div><strong>RSI confirmation</strong><small>Signal window between 45–65</small></div><span class="toggle"></span></div><button class="manage-button">Manage rules <span>→</span></button></aside></section>
+			<footer><span>Kimutai Analytics v0.1</span><span>Data refreshes every 2 seconds <i class="refresh-dot"></i></span></footer>
+		</main>
+	</div>
+	<div class="toast" id="toast" role="status">Market scan complete. No new spikes detected.</div>
+	<div class="auth-modal" id="authModal" aria-hidden="true">
+		<div class="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+			<button class="close-modal" id="closeModal" aria-label="Close dialog">×</button>
+			<p class="eyebrow" id="authEyebrow">WELCOME BACK</p>
+			<h2 id="authTitle">Log in to your workspace</h2>
+			<p class="auth-copy">Access your watchlist, signal rules, and trade history.</p>
+			<form id="authForm">
+				<div class="signup-only">
+					<label for="firstName">First name</label>
+					<input id="firstName" type="text" placeholder="Your first name">
+					<label for="username">Username</label>
+					<input id="username" type="text" placeholder="Choose a unique username">
+				</div>
+				<label for="email">Email address</label>
+				<input id="email" type="email" placeholder="you@example.com" required>
+				<label for="password">Password</label>
+				<input id="password" type="password" placeholder="Enter your password" required>
+				<button class="primary-button auth-submit" type="submit" id="authSubmit">Log in</button>
+			</form>
+			<p class="auth-switch" id="authSwitch">New to Kimutai Analytics? <button type="button">Create an account</button></p>
+		</div>
+	</div>
+	<script>
+		const toast = document.getElementById('toast');
+		const scanButton = document.getElementById('scanButton');
+		const feedButton = document.getElementById('feedButton');
+		const feedLabel = document.querySelector('.feed-card-top span:nth-child(2)');
+		const feedLiveLabel = document.querySelector('.feed-live');
+		const derivAppId = '1089';
+		const derivSymbols = ['BOOM500', 'BOOM300', 'CRASH500', 'CRASH300'];
+		const authModal = document.getElementById('authModal');
+		const authTitle = document.getElementById('authTitle');
+		const authEyebrow = document.getElementById('authEyebrow');
+		const authSubmit = document.getElementById('authSubmit');
+		const authSwitch = document.getElementById('authSwitch');
+		const signupFields = document.querySelector('.signup-only');
+		const firstNameInput = document.getElementById('firstName');
+		const usernameInput = document.getElementById('username');
+		const greetingTitle = document.getElementById('greetingTitle');
+		const usersSection = document.getElementById('users');
+		const usersCount = document.getElementById('usersCount');
+		const usersTableBody = document.getElementById('usersTableBody');
+		const apiUrl = 'http://localhost:3000/api';
+		let authMode = 'login';
+		let derivSocket;
+
+		function openAuth(mode) {
+			const isSignup = mode === 'signup';
+			authMode = mode;
+			authEyebrow.textContent = isSignup ? 'START YOUR WORKSPACE' : 'WELCOME BACK';
+			authTitle.textContent = isSignup ? 'Create your workspace' : 'Log in to your workspace';
+			authSubmit.textContent = isSignup ? 'Create account' : 'Log in';
+			signupFields.hidden = !isSignup;
+			firstNameInput.required = isSignup;
+			usernameInput.required = isSignup;
+			firstNameInput.disabled = !isSignup;
+			usernameInput.disabled = !isSignup;
+			authSwitch.innerHTML = isSignup ? 'Already have an account? <button type="button">Log in</button>' : 'New to Kimutai Analytics? <button type="button">Create an account</button>';
+			authModal.classList.add('open');
+			authModal.setAttribute('aria-hidden', 'false');
+			authSwitch.querySelector('button').addEventListener('click', () => openAuth(isSignup ? 'login' : 'signup'));
+		}
+
+		document.getElementById('loginButton').addEventListener('click', () => openAuth('login'));
+		document.getElementById('signupButton').addEventListener('click', () => openAuth('signup'));
+		document.getElementById('closeModal').addEventListener('click', () => { authModal.classList.remove('open'); authModal.setAttribute('aria-hidden', 'true'); });
+		authModal.addEventListener('click', (event) => { if (event.target === authModal) document.getElementById('closeModal').click(); });
+		document.getElementById('authForm').addEventListener('submit', async (event) => {
+			event.preventDefault();
+			const email = document.getElementById('email').value;
+			const payload = { email, password: document.getElementById('password').value };
+			if (authMode === 'signup') {
+				payload.firstName = firstNameInput.value;
+				payload.username = usernameInput.value;
+			}
+			try {
+				const response = await fetch(`${apiUrl}/auth/${authMode}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+				const result = await response.json();
+				if (!response.ok) throw new Error(result.error || 'Authentication failed.');
+				localStorage.setItem('kimutaiToken', result.token);
+				const displayName = result.user.username || result.user.firstName || email.split('@')[0];
+				greetingTitle.textContent = `Welcome, ${displayName}.`;
+				configureUsersAccess(result.user.role);
+				document.getElementById('closeModal').click();
+				showToast(`Welcome to Kimutai Analytics, ${displayName}.`);
+			} catch (error) {
+				showToast(error.message);
+			}
+		});
+
+		function configureUsersAccess(role) {
+			const usersNav = document.getElementById('usersNav');
+			usersNav.hidden = role !== 'admin';
+			if (role !== 'admin') usersSection.hidden = true;
+		}
+
+		async function loadUsers() {
+			const token = localStorage.getItem('kimutaiToken');
+			if (!token) {
+				showToast('Log in as an administrator to view users.');
+				return;
+			}
+
+			usersSection.hidden = false;
+			usersCount.textContent = 'Loading...';
+			try {
+				const response = await fetch(`${apiUrl}/users`, { headers: { Authorization: `Bearer ${token}` } });
+				const result = await response.json();
+				if (!response.ok) throw new Error(result.error || 'Could not load users.');
+				usersTableBody.innerHTML = '';
+				result.users.forEach((user) => {
+					const row = document.createElement('tr');
+					const values = [user.firstName, user.username, user.email, user.role, new Date(user.createdAt).toLocaleDateString()];
+					values.forEach((value, index) => {
+						const cell = document.createElement('td');
+						cell.textContent = value;
+						if (index === 3) cell.className = `status-pill-cell ${user.role === 'admin' ? 'admin-role' : ''}`;
+						row.appendChild(cell);
+					});
+					usersTableBody.appendChild(row);
+				});
+				usersCount.textContent = `${result.users.length} total`;
+			} catch (error) {
+				usersSection.hidden = true;
+				showToast(error.message);
+			}
+		}
+
+		const usersNav = document.getElementById('usersNav');
+		usersNav.addEventListener('click', (event) => {
+			if (usersNav.hidden) return;
+			event.preventDefault();
+			loadUsers();
+			usersSection.scrollIntoView({ behavior: 'smooth' });
+		});
+
+		function showToast(message) {
+			toast.textContent = message;
+			toast.classList.add('show');
+			setTimeout(() => toast.classList.remove('show'), 3200);
+		}
+
+		function connectDerivFeed() {
+			if (derivSocket && derivSocket.readyState === WebSocket.OPEN) {
+				showToast('Deriv feed is already connected.');
+				return;
+			}
+
+			feedButton.textContent = 'Connecting...';
+			feedLabel.textContent = 'Deriv feed';
+			feedLiveLabel.textContent = 'CONNECTING';
+			derivSocket = new WebSocket(`wss://ws.derivws.com/websockets/v3?app_id=${derivAppId}`);
+
+			derivSocket.addEventListener('open', () => {
+				feedButton.textContent = 'Disconnect feed';
+				feedLiveLabel.textContent = 'LIVE';
+				derivSocket.send(JSON.stringify({ ticks: derivSymbols[0], subscribe: 1 }));
+				showToast('Connected. Receiving Boom 500 tick data.');
+			});
+
+			derivSocket.addEventListener('message', (event) => {
+				const message = JSON.parse(event.data);
+				if (message.error) showToast(message.error.message);
+				if (message.tick) console.log('Deriv tick:', message.tick);
+			});
+
+			derivSocket.addEventListener('error', () => {
+				feedLiveLabel.textContent = 'ERROR';
+				feedButton.textContent = 'Retry connection';
+				showToast('Could not connect to the Deriv feed.');
+			});
+
+			derivSocket.addEventListener('close', () => {
+				feedLiveLabel.textContent = 'OFFLINE';
+				feedButton.textContent = 'Connect feed';
+			});
+		}
+
+		function disconnectDerivFeed() {
+			derivSocket.close();
+			showToast('Deriv feed disconnected.');
+		}
+
+		scanButton.addEventListener('click', () => { scanButton.classList.add('scanning'); scanButton.innerHTML = 'Scanning markets <span>…</span>'; setTimeout(() => { scanButton.classList.remove('scanning'); scanButton.innerHTML = 'Run market scan <span>↗</span>'; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 3200); }, 900); });
+		feedButton.addEventListener('click', () => {
+			if (derivSocket && derivSocket.readyState === WebSocket.OPEN) disconnectDerivFeed();
+			else connectDerivFeed();
+		});
+		document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('.filter').forEach(item => item.classList.remove('active-filter')); button.classList.add('active-filter'); }));
+	</script>
+</body>
+</html>
