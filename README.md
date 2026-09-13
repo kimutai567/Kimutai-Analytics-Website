@@ -50,6 +50,7 @@ Save trades and signal history
 - Boom and Crash watchlist filters
 - Recent signals table
 - Signal rule display for spike detection, EMA, and RSI
+- Save all the succesfull entries
 
 ## Deriv WebSocket Workflow
 
@@ -230,3 +231,4 @@ The application may use PostgreSQL in the final architecture, so this MySQL-styl
 5. Add the real authentication API and database users table.
 6. Add subscription plans and backend payment integration.
 7. Save signals, trades, and payment status in the database.
+8. Identify weak and strong spikes across the markets .
