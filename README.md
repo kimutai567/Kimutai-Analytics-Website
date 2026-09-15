@@ -232,3 +232,5 @@ The application may use PostgreSQL in the final architecture, so this MySQL-styl
 6. Add subscription plans and backend payment integration.
 7. Save signals, trades, and payment status in the database.
 8. Identify weak and strong spikes across the markets .
+9. Have analysis over 4 days of spikes to have a proper risk management.
+
