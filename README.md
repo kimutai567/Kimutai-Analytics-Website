@@ -233,4 +233,5 @@ The application may use PostgreSQL in the final architecture, so this MySQL-styl
 7. Save signals, trades, and payment status in the database.
 8. Identify weak and strong spikes across the markets .
 9. Have analysis over 4 days of spikes to have a proper risk management.
+10. Traders can have a chartbox to discuss an issue and also for experienced traders can offer a strategy that works in the same , and upload eveidence .
 
