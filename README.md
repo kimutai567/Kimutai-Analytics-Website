@@ -51,7 +51,7 @@ Save trades and signal history
 - Recent signals table
 - Signal rule display for spike detection, EMA, and RSI
 - Save all the succesfull entries
-
+- It shoukd offer signal , 2 candles before touching Ema line
 ## Deriv WebSocket Workflow
 
 The current browser prototype connects to the Deriv WebSocket when the user clicks **Connect feed**.
