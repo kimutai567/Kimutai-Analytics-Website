@@ -53,6 +53,7 @@ Save trades and signal history
 - Save all the succesfull entries
 - It shoukd offer signal , 2 candles before touching Ema line
 - Addition of boom 1000 and crash 1000
+- weekly analysis
 ## Deriv WebSocket Workflow
 
 The current browser prototype connects to the Deriv WebSocket when the user clicks **Connect feed**.
