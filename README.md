@@ -35,6 +35,8 @@ Save trades and signal history
 - Boom 300 Index
 - Crash 500 Index
 - Crash 300 Index
+- Crash 600 index
+- Boom 600 index
 
 ## Current Frontend Features
 
